@@ -1,66 +1,61 @@
-## Foundry
+# OurToken Project
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+This project implements a simple ERC20 token named "OurToken" using Solidity and the OpenZeppelin library. It includes the token contract, deployment script, and test file.
 
-Foundry consists of:
+## Project Structure
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+- `src/OurToken.sol`: The main token contract
+- `script/DeployOurToken.s.sol`: Deployment script for the token
+- `test/OurTokenTest.t.sol`: Test file for the token contract
 
-## Documentation
+## Features
 
-https://book.getfoundry.sh/
+- ERC20 compliant token
+- Initial supply of 99 tokens (considering 18 decimal places)
+- Deployment script for easy token deployment
+- Comprehensive test suite
 
-## Usage
+## Prerequisites
 
-### Build
+- Solidity 0.8.19
+- Foundry (for deployment and testing)
+- OpenZeppelin contracts
 
-```shell
-$ forge build
+## Installation
+
+1. Clone this repository
+2. Install dependencies:
+   ```
+   forge install
+   ```
+   This will install the required dependencies (forge-std and OpenZeppelin) in the lib/ directory.
+
+## Dependency Management
+
+This project uses Foundry for dependency management. The dependencies are specified in the foundry.toml file and are installed in the lib/ directory. These directories are ignored by git .
+
+## Deployment
+
+To deploy the token:
+
+```
+forge script script/DeployOurToken.s.sol:DeployOurToken --rpc-url <your_rpc_url> --private-key <your_private_key>
 ```
 
-### Test
+Replace `<your_rpc_url>` and `<your_private_key>` with your actual RPC URL and private key.
 
-```shell
-$ forge test
+## Testing
+
+Run the tests using Foundry:
+
+```
+forge test
 ```
 
-### Format
+## License
 
-```shell
-$ forge fmt
-```
+This project is licensed under the MIT License.
 
-### Gas Snapshots
+## Contributing
 
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+Contributions are welcome! Please feel free to submit a Pull Request.
